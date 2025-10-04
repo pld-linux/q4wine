@@ -14,6 +14,7 @@ Release:	1
 License:	GPL v3
 Source0:	https://github.com/brezerk/q4wine/archive/v%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	c98dbae975d6937f63845be119039801
+Patch0:		libdir.patch
 URL:		http://q4wine.brezblock.org.ua/
 ######		Unknown group!
 Group:		Application/Emulators
@@ -72,6 +73,7 @@ Możliwości:
 
 %prep
 %setup -q
+%patch -P0 -p1
 
 %build
 mkdir -p build
