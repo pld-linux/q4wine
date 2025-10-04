@@ -21,6 +21,7 @@ BuildRequires:	Qt6Core-devel
 BuildRequires:	Qt6DBus-devel
 BuildRequires:	Qt6Gui-devel
 BuildRequires:	Qt6Network-devel
+BuildRequires:	Qt6Sql-devel
 BuildRequires:	Qt6Svg-devel
 BuildRequires:	cmake
 BuildRequires:	fdupes
