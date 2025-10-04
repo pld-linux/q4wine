@@ -35,7 +35,7 @@ Requires:	wine
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Q4Wine is an Qt4-based GUI for WINE. It will help you to manage wine
+Q4Wine is an Qt-based GUI for WINE. It will help you to manage wine
 prefixes and installed applications.
 
 General features:
@@ -52,7 +52,7 @@ General features:
 - Winetricks support.
 
 %description -l pld.UTF-8
-Q4Wine jest bazowaną na Qt4 graficzną nakładką WINE. Ułatwi Ci
+Q4Wine jest bazowaną na Qt graficzną nakładką WINE. Ułatwi Ci
 zarządzanie prefiksami oraz zainstalowanymi aplikacjami..
 
 Możliwości:
