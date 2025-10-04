@@ -6,25 +6,27 @@
 # package are under the same license as the package itself.
 #
 
+Summary:	Qt GUI for WINE
+Summary(pl.UTF-8):	Graficzna nakładka Qt dla WINE
 Name:		q4wine
-Version:	0.121
+Version:	1.4.2
 Release:	1
 License:	GPL v3
+Source0:	https://github.com/brezerk/q4wine/archive/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	c98dbae975d6937f63845be119039801
 URL:		http://q4wine.brezblock.org.ua/
-Source0:	http://downloads.sourceforge.net/project/q4wine/q4wine/q4wine%200.121/%{name}-%{version}.tar.bz2
-# Source0-md5:	2de5de62f57ba6b26247198df339d81a
 ######		Unknown group!
-Summary:	Qt4 GUI for WINE
-Summary(pl.UTF-8):	Graficzna nakładka Qt4 dla WINE
 Group:		Application/Emulators
-BuildRequires:	QtCore-devel
-BuildRequires:	QtDBus-devel
-BuildRequires:	QtGui-devel
-BuildRequires:	QtNetwork-devel
+BuildRequires:	Qt6Core-devel
+BuildRequires:	Qt6DBus-devel
+BuildRequires:	Qt6Gui-devel
+BuildRequires:	Qt6Network-devel
+BuildRequires:	Qt6Svg-devel
 BuildRequires:	cmake
 BuildRequires:	fdupes
 BuildRequires:	fuse-iso
 BuildRequires:	icoutils
+BuildRequires:	qt6-linguist
 Requires:	fuse-iso
 Requires:	icoutils
 Requires:	sqlite3
@@ -70,17 +72,18 @@ Możliwości:
 %setup -q
 
 %build
-%{__mkdir} build
+mkdir -p build
 cd build
-export CFLAGS="%{optflags}"
-export CXXFLAGS="%{optflags}"
-cmake .. -DCMAKE_INSTALL_PREFIX=%{_prefix} -DWITH_WINETRIKS=ON
-%{__make} %{?_smp_mflags}
+%cmake ..
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
+
 fdupes -s $RPM_BUILD_ROOT
 
 %clean
@@ -88,10 +91,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README
+%doc AUTHORS.md Changelog.md README.md
 %{_datadir}/%{name}
-%attr(755,root,root) %{_bindir}/*
+%attr(755,root,root) %{_bindir}/q4wine*
 %{_libdir}/%{name}
-%{_mandir}/man1/*
 %{_desktopdir}/%{name}.desktop
-%{_pixmapsdir}/%{name}.png
+%{_iconsdir}/hicolor/scalable/apps/q4wine*.svg
+%{_datadir}/metainfo/ua.org.brezblock.q4wine.appdata.xml
+%{_mandir}/man1/q4wine*.1*
