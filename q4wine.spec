@@ -23,6 +23,7 @@ BuildRequires:	Qt6Gui-devel
 BuildRequires:	Qt6Network-devel
 BuildRequires:	Qt6Sql-devel
 BuildRequires:	Qt6Svg-devel
+BuildRequires:	Qt6Xml-devel
 BuildRequires:	cmake
 BuildRequires:	fdupes
 BuildRequires:	fuse-iso
